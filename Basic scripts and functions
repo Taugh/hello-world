@@ -1,0 +1,20 @@
+# Basic scripts and function
+
+
+```python
+
+# arithmetic progression example
+a = int(input("Enter amount: "))
+d = int(input("Enter increment: "))
+n = int(input("Enter term: "))
+
+print(a + (n - 1)* d)
+
+# geometric progression example
+a = int(input("Enter amount: "))
+r = int(input("Enter increment: "))
+n = int(input("Enter term: "))
+
+print(a* r**(n-1))
+
+```
