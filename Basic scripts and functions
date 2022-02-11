@@ -236,4 +236,206 @@ while True:
     else:
         print(f"Incorrect answer.")
         answer = input(f"Enter capital, or {give_up} to quit! ")
+        
+
+def displaycontents(filename):
+    fp = open(filename)
+    print(fp.read())
+    fp.close()
+
+
+def word_count (wordlist):  # Takes a list as an input
+    newdict = {}
+    for i in wordlist:
+        x = 0
+        key = i
+        if key in newdict:
+            continue
+        else:
+            for j in wordlist:
+              if i == j:
+                  x += 1
+            newdict.update({i:x})
+    
+    return newdict
+
+
+def letter_count(text):
+    count = 0
+    for i in text:
+        if i >= "a" and i <= "z":
+            count += 1
+        elif i >= "A" and i <= "Z":
+                count += 1
+    return count
+
+
+def Inclean(s): # Use fof case insensitive
+    news = ""
+    s = s.lower()
+    for c in s:
+        if c >= "a" and c <= "z":
+            news += c
+        else:
+            news += " "
+    
+    return news
+
+
+# def clean(s): # Use for case sensitive
+#     news = ""
+#     for c in s:
+#         if c >= "a" and c <= "z":
+#             news += c
+#         elif c >= "A" and c <= "Z":
+#             news += c
+#         else:
+#             news += " "
+    
+#     return print(news)
+
+def clean( s ):
+    news = ""
+    s = s.lower()
+    for c in s:
+        if c >= "a" and c <= "z":
+            news += c
+        else:
+            news += " "
+    return news
+
+
+# Takes string s and return only alphas and spaces where non-alphas were
+def alphas(s):
+    x = ''
+    for i in s:
+       if i.isalpha():
+           x = x + i
+       else:
+           x = x + ' '
+        
+    return x
+
+def noVowels(s):
+    news = ""
+    vowels = {"a": "", "e": "", "i": "", "o": "","u": ""}
+    s = s.lower()
+    novowels = s.maketrans(vowels)
+    x = 0
+    for c in s:
+        x += 1
+        for j in vowels:
+            if c == j:
+                news = s.translate(novowels)
+    return news
+
+
+def removevowels(line):
+    newline = ""
+    for c in line:
+        if c not in "aeiouAEIOU":
+            newline += c
+    return newline
+
+# Find prime numbers
+import time
+import math
+
+# def is_prime_V1(n):
+#     """Return 'True' if 'n' is a prime number. False otherwise"""
+#     if n == 1:
+#         return False  #1 is not prime
+    
+#     for d in range(2, n):
+#         if n % d == 0:
+#             return False
+#     return True
+
+# # ====== Test Function =====
+# for n in range(1, 20):
+#     print(n, is_prime_V1(n))
+
+
+# def is_prime_V2(n):
+#     """Return 'True' if 'n' is a prime number. False otherwise"""
+#     if n == 1:
+#         return False  #1 is not prime
+    
+#     max_divisor = math.floor(math.sqrt(n))
+#     for d in range(2, 1 + max_divisor):
+#         if n % d == 0:
+#             return False
+#     return True
+
+# # ====== Test Function =====
+# for n in range(1, 20):
+#     print(n, is_prime_V2(n))
+
+
+def is_prime_V3(n):
+    """Return 'True' if 'n' is a prime number. False otherwise"""
+    if n == 1:
+        return False  #1 is not prime
+   
+    # If it's even and not 2, then it's not prime
+    if n == 2:
+        return True
+    if n > 2 and n % 2 ==0:
+        return False
+    
+    max_divisor = math.floor(math.sqrt(n))
+    for d in range(3, 1 + max_divisor, 2):
+        if n % d == 0:    
+            return False
+    return True    
+
+# # ====== Test Function =====
+# for n in range(1, 20):
+#     print(n, is_prime_V3(n))
+
+# ===== Time Function Test =====
+t0 = time.time()
+for n in range(1, 100000):
+    is_prime_V3(n)
+t1 = time.time()
+print('Time required ', t1- t0)
+
+
+# Get user input with data type restrictions
+def getFloat(prompt):
+    while True:
+        try:
+            num = float(input(prompt))
+        except ValueError:
+            print("That is not a number -- please try again")
+            continue
+        return num
+
+def getInteger(prompt):
+    while True:
+        try:
+            num = int(input(prompt))
+        except ValueError:
+            print("That is not an integer -- please try again")
+            continue
+        return num
+
+def getString(prompt):
+    line = input(prompt)
+    return line.strip()
+
+def getLetter(prompt):
+    while True:
+        line = input(prompt)
+        line = line.strip()
+        line = line.upper()
+        if len(line) != 1:
+            print("Please enter exactly one character")
+            continue
+        if line < 'A' or line > 'Z':
+            print("Please enter a letter from the alphabet")
+            continue
+        return line
+
+
 ```
