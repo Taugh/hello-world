@@ -7,14 +7,40 @@
 a = int(input("Enter amount: "))
 d = int(input("Enter increment: "))
 n = int(input("Enter term: "))
-
 print(a + (n - 1)* d)
+
 
 # geometric progression example
 a = int(input("Enter amount: "))
 r = int(input("Enter increment: "))
 n = int(input("Enter term: "))
-
 print(a* r**(n-1))
+
+
+# Sums a squence of numbers
+n =  int(input("Enter last number: "))
+x = (n * (n + 1)//2)
+print(f" sum is {x:,}")
+
+
+# returns last number in a string
+num = input("Enter a number: ")
+
+x = [n for n in num]
+print(f"The last digit is {x[-1]}")
+
+last = abs(int(num)) % 10
+print(f"The last digit is {last}")
+
+
+# Day before n days
+days = ["Sunday", "Monday", "Tuesday", "Wednsday", "Thursday", "Friday", "Saturday"]
+
+day = input("Enter start day: ")
+
+ndays = int(input("Enter number of days to move: "))
+yday = days.index(day) - (ndays % 7)
+
+print(f"Your new day is {days[yday]}")  
 
 ```
