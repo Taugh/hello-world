@@ -1,2 +1,2 @@
-# hello-world
-First repository
+# Basic Scripts and Functions
+The Beginning
